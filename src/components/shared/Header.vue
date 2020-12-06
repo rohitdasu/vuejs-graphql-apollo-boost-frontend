@@ -17,7 +17,7 @@ export default {
   name: "Header",
   methods: {
     gotoRepo() {
-      window.location.href = "https://github.com/rohitdasu";
+      window.location.href = "https://github.com/rohitdasu/vuejs-graphql-apollo-boost-frontend";
     },
     gotoProfile() {
       window.location.href = "https://rohit-dasu.web.app";
