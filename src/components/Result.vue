@@ -8,22 +8,27 @@
       <md-icon>logout</md-icon>
     </md-button>
 
-    <!-- <pie-chart :data="chartData"></pie-chart> -->
-    <div class="m-5 p-5">
-        {{ data }}
+    <pie-chart :data="graphDataCalculate"></pie-chart>
+
+    <div v-if="progress" class="d-flex justify-content-center">
+      <md-progress-spinner :md-diameter="100" :md-stroke="10" md-mode="indeterminate"></md-progress-spinner>
     </div>
 
     <div class="m-5 p-5 text-center">
-        <md-button class="md-primary md-raised" @click="show=true" v-if="!show">Show Details About Project</md-button>
-        <md-button class="md-primary md-raised" @click="show=false" v-if="show">Hide Details About Project</md-button>
-        <div v-if="show" class="m-3 p-4">
-            <h5>Front-End Framework: VueJS</h5>
-            <h5>Back-End Framework: ExpressJS (RunTimeEnvironment: NodeJS)</h5>
-            <h5>Data Source: GraphQl</h5>
-            <h5>Front-End GraphQl Datafetch: Apollo GraphQl</h5>
-        </div>
+      <md-button class="md-primary md-raised" @click="show = true" v-if="!show"
+        >Show Details About Project</md-button
+      >
+      <md-button class="md-primary md-raised" @click="show = false" v-if="show"
+        >Hide Details About Project</md-button
+      >
+      <div v-if="show" class="m-3 p-4">
+        <div class="h5">Front-End Framework: VueJS</div>
+        <div class="h5">Back-End Framework: ExpressJS (RunTimeEnvironment: NodeJS)</div>
+        <div class="h5">Data Source: GraphQl</div>
+        <div class="h5">Front-End GraphQl Datafetch: Apollo GraphQl</div>
+        <div class="h5">Charts: ChartJS and ChartKick</div>
+      </div>
     </div>
-
   </div>
 </template>
 
@@ -35,13 +40,12 @@ export default {
   data: function () {
     return {
       inputName: "",
-      chartData: {
-        x: 20,
-        y: 30,
-        z: 30,
-      },
+      keys: [],
+      values: [],
       data: [],
-      show:false
+      progress:true,
+      graphData: {},
+      show: false,
     };
   },
   apollo: {
@@ -63,17 +67,27 @@ export default {
       this.inputName = localStorage.getItem("name");
     }
   },
-  mounted() {
-    console.log(this.data);
-    for (let i in this.data) {
-      console.log(this.data[i]);
-    }
+  watch: {
+    data() {
+      for (let i in this.data) {
+        this.keys.push(this.data[i]["name"]);
+        this.values.push(this.data[i]["projects"]);
+      }
+      this.keys.forEach((key, i) => this.graphData[key] = this.values[i]);
+      this.progress = false;
+    },
   },
   methods: {
     gotoHome() {
       localStorage.removeItem("name");
       this.$router.push("/");
     },
+  },
+  computed: {
+    graphDataCalculate() {
+      this.keys.forEach((key, i) => this.graphData[key] = this.values[i]);
+      return JSON.parse(JSON.stringify(this.graphData));
+    }
   },
 };
 </script>

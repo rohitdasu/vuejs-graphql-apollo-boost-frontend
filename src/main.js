@@ -9,7 +9,7 @@ import ApolloClient from 'apollo-boost'
 
 Vue.config.productionTip = false;
 
-import { MdButton, MdToolbar, MdCard, MdField} from 'vue-material/dist/components';
+import { MdButton, MdToolbar, MdCard, MdField, MdProgress} from 'vue-material/dist/components';
 import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default.css';
 import Chartkick from 'vue-chartkick';
@@ -39,6 +39,7 @@ Vue.use(Chartkick.use(Chart));
 Vue.use(MdButton);
 Vue.use(MdToolbar);
 Vue.use(MdCard);
+Vue.use(MdProgress);
 Vue.use(MdField);
 Vue.use(VueRouter);
 
