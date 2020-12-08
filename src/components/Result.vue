@@ -34,6 +34,11 @@
 
 <script>
 import gql from "graphql-tag";
+import Chartkick from 'vue-chartkick';
+import Chart from 'chart.js';
+import Vue from 'vue';
+
+Vue.use(Chartkick.use(Chart));
 
 export default {
   name: "Result",
