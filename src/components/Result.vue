@@ -11,14 +11,14 @@
     <pie-chart :data="graphDataCalculate"></pie-chart>
 
     <div v-if="progress" class="d-flex justify-content-center">
-      <md-progress-spinner :md-diameter="100" :md-stroke="10" md-mode="indeterminate"></md-progress-spinner>
+      <md-progress-spinner :md-diameter="100" :md-stroke="4" md-mode="indeterminate"></md-progress-spinner>
     </div>
 
     <div class="m-5 p-5 text-center">
-      <md-button class="md-primary md-raised" @click="show = true" v-if="!show"
+      <md-button class="md-primary round pr-2 pl-2 pt-1 pb-1 md-raised" @click="show = true" v-if="!show"
         >Show Details About Project</md-button
       >
-      <md-button class="md-primary md-raised" @click="show = false" v-if="show"
+      <md-button class="md-primary round md-raised pr-2 pl-2 pt-1 pb-1" @click="show = false" v-if="show"
         >Hide Details About Project</md-button
       >
       <div v-if="show" class="m-3 p-4">
@@ -70,6 +70,7 @@ export default {
       this.$router.push("/");
     } else {
       this.inputName = localStorage.getItem("name");
+      console.log('created')
     }
   },
   watch: {
@@ -97,5 +98,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.round{
+  border-radius: 15px;
+}
 </style>

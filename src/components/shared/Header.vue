@@ -2,10 +2,10 @@
   <div class="hello">
     <md-toolbar class="md-primary" md-elevation="1">
       <h3 class="md-title my-text" style="flex: 1">Apollo GraphQL VueJS</h3>
-      <md-button class="md-raised padding-button" @click="gotoRepo"
+      <md-button class="md-raised padding-button round" @click="gotoRepo"
         >View Source Code</md-button
       >
-      <md-button class="md-raised padding-button" @click="gotoProfile"
+      <md-button class="md-raised padding-button round" @click="gotoProfile"
         >About Developer</md-button
       >
     </md-toolbar>

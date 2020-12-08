@@ -14,7 +14,7 @@
         </md-field>
 
         <md-button
-          class="md-raised md-primary btn-block"
+          class="md-raised md-primary round btn-block"
           @click="gotoResult"
           :disabled="!inputName"
           >Enter</md-button
