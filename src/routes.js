@@ -3,7 +3,7 @@ import home from './components/Home'
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 
-export const routes = [
+const routes = [
     { path: '', component: home },
     { path: '/result', component: result }
 ]
