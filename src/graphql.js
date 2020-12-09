@@ -3,7 +3,7 @@ import VueApollo from 'vue-apollo'
 import Vue from 'vue'
 
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:3000/graphql'
+  uri: 'https://assignment-rewoke.herokuapp.com/graphql'
 })
 
 export const apolloProvider = new VueApollo({

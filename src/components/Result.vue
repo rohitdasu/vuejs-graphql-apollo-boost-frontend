@@ -1,5 +1,7 @@
 <template>
+
   <div class="container-fluid">
+
     <h2 class="mr-auto ml-auto text-center mt-5">
       Hi {{ inputName }}! Distribution of top 50 contributors are :
     </h2>
@@ -15,18 +17,23 @@
     </div>
 
     <div class="m-5 p-5 text-center">
+
       <md-button class="md-primary round pr-2 pl-2 pt-1 pb-1 md-raised" @click="show = !show">
         {{show==true? 'Hide Details':'Show Details'}}
       </md-button>
 
       <div v-if="show" class="m-3 p-4">
+
         <div class="h5">Front-End Framework: VueJS</div>
         <div class="h5">Back-End Framework: ExpressJS (RunTimeEnvironment: NodeJS)</div>
         <div class="h5">Data Source: GraphQl</div>
         <div class="h5">Front-End GraphQl Datafetch: Apollo GraphQl</div>
         <div class="h5">Charts: ChartJS and ChartKick</div>
+
       </div>
+
     </div>
+
   </div>
 </template>
 
@@ -96,7 +103,9 @@ export default {
 </script>
 
 <style>
+
 .round{
   border-radius: 15px;
 }
+
 </style>
